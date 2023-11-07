@@ -5,7 +5,7 @@ export const RockForm = ({ fetchRocks }) => {
     const initialRockState = {
         name: "",
         weight: 0,
-        typeId: 0
+        type_id: 0
     }
 
     const [types, changeTypes] = useState([{ id: 1, label: "Igneous" }, { id: 2, label: "Volcanic" }])
@@ -47,7 +47,7 @@ export const RockForm = ({ fetchRocks }) => {
     return (
         <main className="container--login">
             <section>
-                <form className="form--login" onSubmit={() => { }}>
+                <form className="form--login" onSubmit={collectRock}>
                     <h1 className="text-3xl">Collect a Rock</h1>
                     <fieldset className="mt-4">
                         <label htmlFor="rock">Name:</label>
