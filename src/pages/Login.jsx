@@ -63,12 +63,4 @@ export const Login = () => {
                         </button>
                     </fieldset>
                 </form>
-            </section>
-            <div className="loginLinks">
-                <section className="link--register">
-                    <Link className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" to="/register">Not a member yet?</Link>
-                </section>
-            </div>
-        </main>
-    )
-}
+            
