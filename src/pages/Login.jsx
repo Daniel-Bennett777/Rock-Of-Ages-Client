@@ -56,11 +56,3 @@ export const Login = () => {
                             className="form-control"
                             placeholder="Password"
                         />
-                    </fieldset>
-                    <fieldset>
-                        <button type="submit" className="button p-3 rounded-md bg-blue-800 text-blue-100">
-                            Sign in
-                        </button>
-                    </fieldset>
-                </form>
-            
