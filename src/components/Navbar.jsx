@@ -4,18 +4,10 @@ import "./Navbar.css"
 export const NavBar = () => {
     const navigate = useNavigate()
     return (
-        <ul className="navbar pb-10">
-            <li className="navbar__item pl-10">
-                <NavLink className="text-left underline text-blue-600 hover:text-purple-700" to={"/allrocks"}>All Rocks</NavLink>
-            </li>
-            <li className="navbar__item">
-                <NavLink className="text-left underline text-blue-600 hover:text-purple-700" to={"/create"}>Collect a Rock</NavLink>
-            </li>
-            <li className="navbar__item">
-                <NavLink className="text-left underline text-blue-600 hover:text-purple-700" to={"/mine"}>My Rocks</NavLink>
-            </li>
-
-            const Counter = () => {
-  const [count, setCount] = useState(0);
-
-  return (
+        <View style={styles.container}>
+          <Text style={styles.counterText}>Count: {count}</Text>
+          <Button title="Increase" onPress={() => setCount(count + 1)} />
+          <Button title="Decrease" onPress={() => setCount(count - 1)} />
+        </View>
+      );
+    };
