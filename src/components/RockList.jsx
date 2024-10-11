@@ -1,41 +1,39 @@
-import { useEffect } from "react"
+import React, { useState } from 'react';
+import { View, TextInput, Text, StyleSheet } from 'react-native';
 
-export const RockList = ({ rocks, fetchRocks, showAll }) => {
-    useEffect(() => {
-        fetchRocks(showAll)
-    }, [showAll])
+const InputExample = () => {
+  const [text, setText] = useState('');
 
-    const displayRocks = () => {
-        if (rocks && rocks.length) {
-            return rocks.map((rock) => (
-                <div key={`key-${rock.id}`} className="border p-5 border-solid hover:bg-fuchsia-500 hover:text-violet-50 rounded-md border-violet-900 mt-5 bg-slate-50">
-                    <div>{rock.name} ({rock.type.label})</div>
-                    {rock.user ? (
-                        <div>In the collection of {rock.user.first_name} {rock.user.last_name} 
-                            <button 
-                                onClick={async ()=> {
-                                    const response = await fetch(`http://localhost:8000/rocks/${rock.id}`, {
-                                        method: "Delete",
-                                        headers: {
-                                            Authorization: `Token ${JSON.parse(localStorage.getItem("rock_token")).token}`
-                                        }
-                                    })
-                                }}
-                                className="border border-solid bg-red-700 text-white p-1">Delete</button></div>
-                    ) : (
-                        <div>User information not available <button>Delete</button></div>
-                    )}
-                </div>
-            ));
-        }
-    
-        return <h3>Loading Rocks...</h3>;
-    };
+  return (
+    <View style={styles.container}>
+      <TextInput
+        style={styles.input}
+        placeholder="Type here..."
+        onChangeText={(value) => setText(value)}
+        value={text}
+      />
+      <Text style={styles.displayText}>You typed: {text}</Text>
+    </View>
+  );
+};
 
-    return (
-        <>
-            <h1 className="text-3xl">Rock List</h1>
-            {displayRocks()}
-        </>
-    )
-}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    width: 200,
+    padding: 10,
+    marginBottom: 20,
+  },
+  displayText: {
+    fontSize: 18,
+  },
+});
+
+export default InputExample;
