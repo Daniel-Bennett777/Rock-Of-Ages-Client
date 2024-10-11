@@ -14,11 +14,8 @@ export const NavBar = () => {
             <li className="navbar__item">
                 <NavLink className="text-left underline text-blue-600 hover:text-purple-700" to={"/mine"}>My Rocks</NavLink>
             </li>
-            {
-                (localStorage.getItem("rock_token") !== null) ?
-                    <li className="navbar__item">
-                        <button className="underline text-blue-600 hover:text-purple-700"
-                            onClick={() => {
-                                localStorage.removeItem("rock_token")
-                                navigate('/login')
-                            }}
+
+            const Counter = () => {
+  const [count, setCount] = useState(0);
+
+  return (
