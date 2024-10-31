@@ -6,22 +6,7 @@ export const RockForm = ({ fetchRocks }) => {
         name: "",
         weight: 0,
         type_id: 0
-    }
 
-
-    const collectRock = async (evt) => {
-        evt.preventDefault()
-
-        await fetch("http://localhost:8000/rocks", {
-            method: "POST",
-            headers: {
-                "Authorization": `Token ${JSON.parse(localStorage.getItem("rock_token")).token}`,
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(rock)
-        })
-
-        await fetchRocks()
 
         navigate("/allrocks")
     }
