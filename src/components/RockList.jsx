@@ -1,19 +1,17 @@
+javascript
 import React, { useState } from 'react';
-import { View, TextInput, Text, StyleSheet } from 'react-native';
+import { View, Button, Text, StyleSheet } from 'react-native';
 
-const InputExample = () => {
-  const [text, setText] = useState('');
+const ButtonExample = () => {
+  const [count, setCount] = useState(0);
 
   return (
-    <View style={styles.container}>
-      <TextInput
-        style={styles.input}
-        placeholder="Type here..."
-        onChangeText={(value) => setText(value)}
-        value={text}
-      />
-      <Text style={styles.displayText}>You typed: {text}</Text>
-    </View>
+    
+      
+
+ setCount(count + 1)} />
+      Button clicked: {count} times
+    
   );
 };
 
@@ -23,16 +21,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  input: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    width: 200,
-    padding: 10,
-    marginBottom: 20,
-  },
   displayText: {
     fontSize: 18,
+    marginTop: 20,
   },
 });
 
