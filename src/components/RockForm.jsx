@@ -8,24 +8,6 @@ export const RockForm = ({ fetchRocks }) => {
         type_id: 0
     }
 
-    const [types, changeTypes] = useState([{ id: 1, label: "Igneous" }, { id: 2, label: "Volcanic" }])
-    const [rock, updateRockProps] = useState(initialRockState)
-    const navigate = useNavigate()
-
-    const fetchTypes = async () => {
-        const response = await fetch("http://localhost:8000/types", {
-            headers: {
-                "Authorization": `Token ${JSON.parse(localStorage.getItem("rock_token")).token}`
-            }
-        })
-        const types = await response.json()
-        changeTypes(types)
-    }
-
-    useEffect(() => {
-        fetchTypes()
-    }, [])
-
 
     const collectRock = async (evt) => {
         evt.preventDefault()
