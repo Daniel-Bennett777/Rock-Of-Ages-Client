@@ -9,30 +9,7 @@ export const RockForm = ({ fetchRocks }) => {
 
 
         navigate("/allrocks")
-    }
-
-    return (
-        <main className="container--login">
-            <section>
-                <form className="form--login" onSubmit={collectRock}>
-                    <h1 className="text-3xl">Collect a Rock</h1>
-                    <fieldset className="mt-4">
-                        <label htmlFor="rock">Name:</label>
-                        <input id="rock" type="text"
-                            onChange={e => {
-                                const copy = { ...rock }
-                                copy.name = e.target.value
-                                updateRockProps(copy)
-                            }}
-                            value={rock.name} className="form-control" />
-                    </fieldset>
-                    <fieldset className="mt-4">
-                        <label htmlFor="weight">Weight in kg:</label>
-                        <input id="weight" type="number"
-                            onChange={e => {
-                                const copy = { ...rock }
-                                copy.weight = e.target.value
-                                updateRockProps(copy)
+ 
                             }}
                             value={rock.weight} className="form-control" />
                     </fieldset>
